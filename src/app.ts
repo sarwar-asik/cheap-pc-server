@@ -8,7 +8,7 @@ import GlobalHandler from './app/middlesWare/globalErrorHandler';
 
 import routes from './app/routes';
 import sendResponse from './shared/sendResponce';
-import { generateFacultyId } from './app/modules/users/user.utils';
+
 import cookieParser from 'cookie-parser';
 
 // import { createUser } from './app/modules/users/users.services'
@@ -18,7 +18,7 @@ const app: Application = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 // Application
@@ -63,19 +63,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   });
   next();
 });
-
-// for testing userId dynamic based on yaer and code ///
-// const academicSemester = {
-//   code: '01',
-//   year: '2025',
-// };
-
-const testId = async () => {
-  const testId = await generateFacultyId();
-
-  console.log(testId, 'testId from app.ts');
-};
-
-testId();
 
 export default app;

@@ -1,5 +1,5 @@
 {
-  "name": "cow-hut",
+  "name": "pc-server",
   "version": "1.0.0",
   "description": "",
   "main": " src/server.ts",

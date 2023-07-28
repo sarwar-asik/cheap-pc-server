@@ -1,0 +1,29 @@
+import ApiError from '../../../errors/ApiError';
+import { IPC } from './pc.interface';
+import { PC } from './pc.model';
+
+
+const createPCServices = async (PCData: IPC): Promise<IPC | null> => {
+  // console.log(PC, 'from services');
+
+  const createdPC = await PC.create(PCData);
+  if (!createdPC) {
+    throw new ApiError(400, 'Failed to create new PC');
+  }
+  return createdPC;
+  // return null
+};
+
+const getSinglePC = async (id: string): Promise<IPC | null> => {
+  const result = await PC.findById(id);
+
+  return result;
+};
+
+const deletePC = async (id: string): Promise<IPC | null> => {
+  const result = await PC.findByIdAndDelete(id);
+
+  return result;
+};
+
+export const PCService = { createPCServices, getSinglePC, deletePC };
