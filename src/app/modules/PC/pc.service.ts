@@ -2,7 +2,6 @@ import ApiError from '../../../errors/ApiError';
 import { IPC } from './pc.interface';
 import { PC } from './pc.model';
 
-
 const createPCServices = async (PCData: IPC): Promise<IPC | null> => {
   // console.log(PC, 'from services');
 
@@ -19,6 +18,10 @@ const getSinglePC = async (id: string): Promise<IPC | null> => {
 
   return result;
 };
+const getByCategory = async (category: string | undefined): Promise<IPC | null> => {
+  const result = await PC.findOne({ category: category });
+  return result;
+};
 
 const deletePC = async (id: string): Promise<IPC | null> => {
   const result = await PC.findByIdAndDelete(id);
@@ -26,4 +29,9 @@ const deletePC = async (id: string): Promise<IPC | null> => {
   return result;
 };
 
-export const PCService = { createPCServices, getSinglePC, deletePC };
+export const PCService = {
+  createPCServices,
+  getSinglePC,
+  deletePC,
+  getByCategory,
+};

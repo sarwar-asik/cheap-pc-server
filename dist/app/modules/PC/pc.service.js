@@ -28,8 +28,17 @@ const getSinglePC = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield pc_model_1.PC.findById(id);
     return result;
 });
+const getByCategory = (category) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield pc_model_1.PC.findOne({ category: category });
+    return result;
+});
 const deletePC = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield pc_model_1.PC.findByIdAndDelete(id);
     return result;
 });
-exports.PCService = { createPCServices, getSinglePC, deletePC };
+exports.PCService = {
+    createPCServices,
+    getSinglePC,
+    deletePC,
+    getByCategory,
+};

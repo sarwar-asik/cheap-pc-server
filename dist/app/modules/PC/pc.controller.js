@@ -58,7 +58,18 @@ const getSinglePC = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     (0, sendResponce_1.default)(res, {
         statusCode: 200,
         success: true,
-        message: 'PC retrieved successfully !',
+        message: 'PC recieved successfully !',
+        data: result,
+    });
+}));
+const getByCategoryPC = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const category = req.query.category;
+    const result = yield pc_service_1.PCService.getByCategory(category);
+    // console.log(id,"id");
+    (0, sendResponce_1.default)(res, {
+        statusCode: 200,
+        success: true,
+        message: 'PC category successfully !',
         data: result,
     });
 }));
@@ -68,7 +79,7 @@ const deletePC = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 
     (0, sendResponce_1.default)(res, {
         statusCode: 200,
         success: true,
-        message: 'Student deleted successfully !',
+        message: 'PC deleted successfully !',
         data: result,
     });
 }));
@@ -77,4 +88,5 @@ exports.PCController = {
     getALLPC,
     getSinglePC,
     deletePC,
+    getByCategoryPC
 };

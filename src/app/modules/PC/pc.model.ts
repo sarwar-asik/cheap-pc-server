@@ -21,6 +21,11 @@ const PCSchema = new Schema<IPC>({
   individualRating: { type: Number, required: true },
   averageRating: { type: Number, required: true },
   reviews: { type: [String], required: true },
+},{
+  timestamps:true,
+  toJSON:{
+    virtuals:true
+  }            
 });
 
 export const PC = model<IPC>('pc-builder', PCSchema);

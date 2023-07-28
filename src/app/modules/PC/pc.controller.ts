@@ -40,7 +40,20 @@ const getSinglePC = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IPC>(res, {
     statusCode: 200,
     success: true,
-    message: 'PC retrieved successfully !',
+    message: 'PC recieved successfully !',
+    data: result,
+  });
+});
+
+const getByCategoryPC = catchAsync(async (req: Request, res: Response) => {
+  const category = req.query.category
+
+  const result = await PCService.getByCategory(category as string);
+  // console.log(id,"id");
+  sendResponse<IPC>(res, {
+    statusCode: 200,
+    success: true,
+    message: 'PC category successfully !',
     data: result,
   });
 });
@@ -53,7 +66,7 @@ const deletePC = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IPC>(res, {
     statusCode: 200,
     success: true,
-    message: 'Student deleted successfully !',
+    message: 'PC deleted successfully !',
     data: result,
   });
 });
@@ -63,4 +76,5 @@ export const PCController = {
   getALLPC,
   getSinglePC,
   deletePC,
+  getByCategoryPC
 };

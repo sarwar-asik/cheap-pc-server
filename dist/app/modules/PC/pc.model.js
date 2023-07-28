@@ -20,5 +20,10 @@ const PCSchema = new mongoose_1.Schema({
     individualRating: { type: Number, required: true },
     averageRating: { type: Number, required: true },
     reviews: { type: [String], required: true },
+}, {
+    timestamps: true,
+    toJSON: {
+        virtuals: true
+    }
 });
 exports.PC = (0, mongoose_1.model)('pc-builder', PCSchema);
