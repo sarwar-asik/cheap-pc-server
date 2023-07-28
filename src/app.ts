@@ -40,7 +40,7 @@ app.get('/', async (req: Request, res: Response) => {
   // next("next error")
   sendResponse(res, {
     success: true,
-    message: 'Running the Cow hut server',
+    message: 'Running the Pc Builder server',
     statusCode: 201,
     data: null,
   });

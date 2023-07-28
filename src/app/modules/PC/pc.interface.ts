@@ -4,11 +4,11 @@ export type IKeyFeatures = {
   Brand: string;
   Model: string;
   Specification: string;
-  Socket: string;
-  Cores: string;
-  Threads: string;
-  TDP: string;
+  Port: string;
+  Voltage: string;
+ 
 };
+
 
 export type IPC = {
   image: string;

@@ -5,10 +5,9 @@ const KeyFeaturesSchema = new Schema<IKeyFeatures>({
   Brand: { type: String, required: true },
   Model: { type: String, required: true },
   Specification: { type: String, required: true },
-  Socket: { type: String, required: true },
-  Cores: { type: String, required: true },
-  Threads: { type: String, required: true },
-  TDP: { type: String, required: true },
+  Port: { type: String, required: true },
+
+  Voltage: { type: String, required: true },
 });
 
 const PCSchema = new Schema<IPC>({

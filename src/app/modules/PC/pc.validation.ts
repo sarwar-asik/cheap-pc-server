@@ -4,10 +4,9 @@ const KeyFeaturesSchema = z.object({
   Brand: z.string(),
   Model: z.string(),
   Specification: z.string(),
-  Socket: z.string(),
-  Cores: z.string(),
-  Threads: z.string(),
-  TDP: z.string(),
+  Port: z.string(),
+  Voltage: z.string(),
+ 
 });
 
 const createPCZodSchema = z.object({
