@@ -15,3 +15,5 @@ router.get('/category',PCController.getByCategoryPC)
 router.get('/:id', PCController.getSinglePC);
 router.delete('/:id', PCController.deletePC);
 export const PCRouter = router;
+
+

@@ -28,9 +28,9 @@ const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
 const cart_service_1 = require("./cart.service");
 const sendResponce_1 = __importDefault(require("../../../shared/sendResponce"));
 const cart_model_1 = require("./cart.model");
-const http_status_1 = __importDefault(require("http-status"));
 const createCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const CartData = __rest(req.body, []);
+    console.log(CartData);
     const result = yield cart_service_1.CartService.createCart(CartData);
     if (result) {
         (0, sendResponce_1.default)(res, {
@@ -46,22 +46,22 @@ const getCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0
     console.log(req.query);
     const queryData = { user: (_a = req.query) === null || _a === void 0 ? void 0 : _a.user, category: (_b = req.params) === null || _b === void 0 ? void 0 : _b.category };
     console.log(queryData);
-    const result = yield cart_model_1.Cart.findOne(queryData);
-    // console.log(result);
-    (0, sendResponce_1.default)(res, {
-        statusCode: http_status_1.default.FOUND,
-        success: true,
-        message: 'Cart Data get successfully!',
-        data: result,
-    });
+    const result = yield cart_model_1.Cart.findOne(queryData).populate('productName');
+    console.log(result);
+    // sendResponse<ICart[]>(res, {
+    //   statusCode: httpStatus.FOUND,
+    //   success: true,
+    //   message: 'Cart Data get successfully!',
+    //   data: result,
+    // });
     // const result = await CartService.getSingleCart(queryData);
-    // if (result) {
-    //   sendResponse<ICart>(res, {
-    //     statusCode: 200,
-    //     success: true,
-    //     message: 'Cart created successfully!',
-    //     data: result,
-    //   });
-    // }
+    if (result) {
+        (0, sendResponce_1.default)(res, {
+            statusCode: 200,
+            success: true,
+            message: 'Cart created successfully!',
+            data: result,
+        });
+    }
 }));
 exports.CartController = { createCart, getCart };

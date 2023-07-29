@@ -6,7 +6,6 @@ import sendResponse from '../../../shared/sendResponce';
 import { ICart } from './cart.interface';
 import { Cart } from './cart.model';
 
-
 const createCart = catchAsync(async (req: Request, res: Response) => {
   const { ...CartData } = req.body;
   console.log(CartData);
@@ -27,7 +26,7 @@ const getCart = catchAsync(async (req: Request, res: Response) => {
   const queryData = { user: req.query?.user, category: req.params?.category };
   console.log(queryData);
 
-  const result = await Cart.findOne(queryData).populate('productName')
+  const result = await Cart.findOne(queryData).populate('productName');
   console.log(result);
 
   // sendResponse<ICart[]>(res, {
@@ -39,7 +38,7 @@ const getCart = catchAsync(async (req: Request, res: Response) => {
 
   // const result = await CartService.getSingleCart(queryData);
   if (result) {
-    sendResponse<ICart[]>(res, {
+    sendResponse<ICart>(res, {
       statusCode: 200,
       success: true,
       message: 'Cart created successfully!',

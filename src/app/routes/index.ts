@@ -1,6 +1,7 @@
 import express from 'express';
 import { PCRouter } from '../modules/PC/pc.route';
 import { cartRouter } from '../modules/CART/cart.rout';
+import { CategoryRouter } from '../modules/CATEGORY/category.route';
 
 const router = express.Router();
 
@@ -12,6 +13,10 @@ const modulesRoutes = [
   {
     path: '/pc-cart',
     route: cartRouter,
+  },
+  {
+    path: '/category',
+    route:CategoryRouter,
   },
 ];
 
