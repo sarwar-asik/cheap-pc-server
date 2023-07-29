@@ -50,7 +50,7 @@ const getByCategoryPC = catchAsync(async (req: Request, res: Response) => {
 
   const result = await PCService.getByCategory(category as string);
   // console.log(id,"id");
-  sendResponse<IPC>(res, {
+  sendResponse<IPC[]>(res, {
     statusCode: 200,
     success: true,
     message: 'PC category successfully !',

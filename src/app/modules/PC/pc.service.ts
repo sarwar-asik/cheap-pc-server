@@ -18,8 +18,8 @@ const getSinglePC = async (id: string): Promise<IPC | null> => {
 
   return result;
 };
-const getByCategory = async (category: string | undefined): Promise<IPC | null> => {
-  const result = await PC.findOne({ category: category });
+const getByCategory = async (category: string | undefined): Promise<IPC[] | null> => {
+  const result = await PC.find({ category: category });
   return result;
 };
 
